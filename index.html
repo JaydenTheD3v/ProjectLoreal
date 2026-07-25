@@ -3,14 +3,14 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Chat Assistant</title>
-    <link
-      href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet"
-    />
+    <title>L'Oréal | Smart Routine &amp; Product Advisor</title>
     <link
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700&display=swap"
       rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
     />
     <link rel="stylesheet" href="style.css" />
   </head>
@@ -18,39 +18,97 @@
   <body>
     <div class="page-wrapper">
       <!------- Header / Branding ------->
+      
+        <div class="headerTron ">
+          <div class="headerTron-track">
+            <!--original content group-->
+            <div class="headerTron-content">
+              <span>✨ Because you're worth it!</span>
+              <span>💄 Beauty starts with confidence.</span>
+              <span>✨ Because you're worth it!</span>
+              <span>✨ ☕ Ask Claire.</span>
+              <span>✨ Because you're worth it!</span>
+              <span>✨ 🌿 Personalized for you.</span>
+              <span>✨ Because you're worth it!</span>
+            </div>
+            <!--Content duplicate for seamless span-->
+            <div class="headerTron-content aria-hidden="true">
+              <span>✨ Because you're worth it!</span>
+              <span>💄 Beauty starts with confidence.</span>
+              <span>✨ Because you're worth it!</span>
+              <span>☕ Ask Claire.</span>
+              <span>✨ Because you're worth it!</span>
+              <span>🌿 Personalized for you.</span>
+              <span>✨ Because you're worth it!</span>
+            </div>          
+          </div>
+        </div>
+
+      
       <header class="site-header">
-        <h1 class="site-title">L'Oréal Paris</h1>
-        <h3 class="site-subtitle">AI Beauty Consultant</h3>
+        <img src="img/loreal-logo.png" alt="L'Oréal Logo" class="logo" />
+        <h1 class="site-title">Smart Routine &amp; Product Advisor</h1>
+        <h3 class="tinymotto">Build a personalized beauty routine using real L'Oréal products, then chat with Claire for expert guidance.</h3>
       </header>
 
-      <!------- Chat Area ------->
-      <main>
-        <section class="chatbox">
-          <div id="chatWindow" class="chat-window">
-            <!-- messages will be appended here via JS -->
-          </div>
+      <!-- Category Filter -->
+      <div class="search-section">
+        <select id="categoryFilter">
+          <option value="" disabled selected>Choose a Category</option>
+          <option value="cleanser">Cleansers</option>
+          <option value="moisturizer">Moisturizers & Treatments</option>
+          <option value="haircare">Haircare</option>
+          <option value="makeup">Makeup</option>
+          <option value="hair color">Hair Color</option>
+          <option value="hair styling">Hair Styling</option>
+          <option value="men's grooming">Men's Grooming</option>
+          <option value="suncare">Suncare</option>
+          <option value="fragrance">Fragrance</option>
+        </select>
+      </div>
 
-          <form id="chatForm" class="chat-form">
-            <label for="userInput" class="visually-hidden">Message</label>
-            <input
-              id="userInput"
-              name="userInput"
-              type="text"
-              placeholder="Ask me about products or routines…"
-              autocomplete="off"
-              required
-            />
-              <button type="submit" id="submitButton">
-                  <span class="material-icons">send</span>
-                  <span class="visually-hidden">Send</span>
-              </button>
-          </form>
-        </section>
-      </main>
+      <!-- Products Grid -->
+      <div id="productsContainer" class="products-grid"></div>
+
+      <!-- Selected Products -->
+      <div class="selected-products">
+        <h2>👛 Your Beauty Bag</h2>
+        <div id="selectedProductsList"></div>
+        <button id="generateRoutine" class="generate-btn">
+          <i class="fa-solid fa-wand-magic-sparkles"></i> Build My Routine
+      </div>
+
+      <!------- Chat Area ------->
+      <section class="chatbox">
+        <h2>Ask Claire</h2>
+       
+        <div id="chatWindow" class="chat-window"></div>
+
+        <form id="chatForm" class="chat-form">
+          <label for="userInput" class="visually-hidden">Message</label>
+          <input
+            id="userInput"
+            name="userInput"
+            type="text"
+            placeholder="Ask me about products or routines…"
+            autocomplete="off"
+            required
+          />
+          <button type="submit" id="sendBtn">
+            <i class="fa-solid fa-paper-plane"></i>
+            <span class="visually-hidden">Send</span>
+          </button>
+        </form>
+      </section>
 
       <!------- Footer Links ------->
       <footer class="site-footer">
-        <p>&copy; 2025 Company Name. All rights reserved.</p>
+        <h1 class="footer-cta">🖤Beauty starts with confidence.🖤</h1>
+        <div class="img-container">
+          <img src="img/lorealeyes.png" class="footer-img"/>
+        </div>
+
+        <p>&copy; 2025 L'Oréal. All rights reserved.</p>
         <nav>
           <!-- These URLs are placeholders -->
           <a href="#">Privacy Policy</a>
@@ -63,4 +121,3 @@
     <script src="script.js"></script>
   </body>
 </html>
-
